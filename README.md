@@ -62,12 +62,13 @@ o	deleteTodo() - Removes todo.
 •	Applies CSS styles based on completion status.
 
 •	Receives todo object and functions as props.
+-------------------------------------------------------------------------------------------------------------------------------
+
 
 **PROPS PASSING FLOW:**
 
-	App → TodoList → TodoItem (Data flow).
-
-	App → AddTodo (Function flow).
+App → TodoList → TodoItem (Data flow).
+App → AddTodo (Function flow).
 -------------------------------------------------------------------------------------------------------------------------------
 **STATE MANAGEMENT:**
 
