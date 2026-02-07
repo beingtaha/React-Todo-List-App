@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+COMPONENT HIERARCHY:
+App (Parent Component)
+|── AddTodo (Child - Form Component)
+└── TodoList (Child - Container Component)
+    └── TodoItem (Grandchild - UI Component)
+------------------------------------------------------------------------------------------------------------------------------------------
+COMPONENT RESPONSIBILITIES:
+1.	APP COMPONENT: 
+•	Root container component.
+•	Manages global state (todos array).
+•	Contains business logic functions:
+o	addTodo() - Adds new todo.
+o	toggleComplete() - Marks todo complete/incomplete.
+o	deleteTodo() - Removes todo.
+•	Passes state and functions as props to children.
+2.	ADDTODO COMPONENT:
+•	Presentational form component.
+•	Local state for input field.
+•	Receives addTodo() function as prop.
+•	Handles form submission.
+•	Validates user input.
+3.	TODOLIST COMPONENT:
+•	Container component for todos.
+•	Receives todos array as prop.
+•	Maps through todos to render TodoItem components.
+•	Displays empty state message.
+•	Passes toggleComplete() and deleteTodo() to TodoItem.
+4.	TODOITEM COMPONENT:
+•	Reusable UI component.
+•	Displays individual todo item.
+•	Shows: checkbox, text, delete button.
+•	Applies CSS styles based on completion status.
+•	Receives todo object and functions as props.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+PROPS PASSING FLOW:
+	App → TodoList → TodoItem (Data flow).
+	App → AddTodo (Function flow).
+-------------------------------------------------------------------------------------------------------------------------------
+STATE MANAGEMENT:
+•	Top-level state in App component.
+•	Local form state in AddTodo component.
+•	No state in TodoList or TodoItem (pure presentational).
+------------------------------------------------------------------------------------------------------------------------------------------
+COMPONENT REUSABILITY:
+•	TodoItem is highly reusable.
+•	Can be used in different contexts.
+•	Accepts props for customization.
+•	Independent styling.
+-------------------------------------------------------------------------------------------------------------------------------
+CSS ARCHITECTURE:
+•	Component-scoped CSS files.
+•	BEM-like naming convention.
+•	No global CSS conflicts.
+•	Responsive design principles.
+-------------------------------------------------------------------------------------------------------------------------------
+BEST PRACTICES IMPLEMENTED:
+	Single Responsibility Principle.
+	Prop Types validation (can be added).
+	Component composition.
+	Separation of concerns.
+	Reusable component design.
+	Clean folder structure.
+	Consistent naming conventions.
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+FOLDER STRUCTURE:
+src/
+|── components/           # All reusable components
+|   |── TodoItem.js
+|   |── TodoItem.css
+|   |── TodoList.js
+|   |── TodoList.css
+|   |── AddTodo.js
+|   └── AddTodo.css
+|── App.js                       # Main component
+|── App.css                    # Global styles
+└── index.js                   # Entry point
+------------------------------------------------------------------------------------------------------------------------------------------
+KEY LEARNINGS:
+•	Container vs Presentational pattern. 
+•	Props drilling vs Context API choice. 
+•	Component composition techniques. 
+•	State lifting principles. 
+•	Event handling in nested components.
+•	CSS modularity approaches.
